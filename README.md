@@ -1,1 +1,5 @@
-# tecnosoluciones
+## tecnosoluciones
+
+#composer install
+
+#php artisan migrate --seed
