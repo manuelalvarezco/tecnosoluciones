@@ -20,3 +20,8 @@ Route::get('/blockchain', function(){
 });
 
 Route::resource('/users', 'UserController');
+Route::resource('/blockchain', 'BlockchainController');
+Route::get('/blockchainStats', 'BlockchainController@blockchainStats');
+Route::get('/graph', 'BlockchainController@graph');
+
+

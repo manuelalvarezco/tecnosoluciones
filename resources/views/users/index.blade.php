@@ -1,5 +1,8 @@
 @extends('app')
 @section('content')
+<div class="container">
+
+
 @if (session('alert'))
     <div class="alert alert-success">
         {{ session('alert') }}
@@ -49,7 +52,42 @@
       <td>{{$item->id}}</td>      
       <td>{{$item->name}}</td>
       <td>{{$item->email}}</td>
-      <td><a href="./users/{{$item->id}}"><i class="far fa-eye"></i></a></td>
+      <!-- <td><a href="./users/{{$item->id}}"><i class="far fa-eye"></i></a></td> -->
+      <td><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewUser"><i class="far fa-eye"></i></button></td>
+        <!-- Modal -->
+        <div class="modal fade" id="viewUser" tabindex="-1" role="dialog" aria-labelledby="ViewUser" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ViewUser">View User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="exampleInputEmail1">Name</label>
+                        <p>{{$item->name}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="email">Email address</label>
+                        <p>{{$item->email}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="created_at">Created_at</label>
+                        <p>{{$item->created_at}}</p>
+                    </div>
+                    
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        </div>
       <td><button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-user-edit"></i></button></td>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -98,7 +136,7 @@
 </table>
 {{ $users->links() }}
 
-
+</div>
 
 
 @endsection
