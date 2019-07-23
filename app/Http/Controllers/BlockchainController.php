@@ -53,7 +53,7 @@ class BlockchainController extends Controller
 
         $charts = $data['values'];
 
-        
+        // dd($charts);
 
         return view('graph', compact('charts'));
     }
